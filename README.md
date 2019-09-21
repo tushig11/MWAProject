@@ -1,1 +1,1 @@
-Instructions will be added here.
+Q&A application details:
