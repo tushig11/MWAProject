@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-<<<<<<< HEAD
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,14 +14,9 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 
 registerLocaleData(en);
-=======
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 
 // import the feature module here so you can add it to the imports array below
 import { AnalyticsModule } from './analytics/analytics.module';
->>>>>>> naya
 
 @NgModule({
   declarations: [
@@ -33,16 +27,12 @@ import { AnalyticsModule } from './analytics/analytics.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-<<<<<<< HEAD
     FormsModule,
     HttpClientModule,
     NgZorroAntdModule,
     NzPopoverModule,
-    BrowserAnimationsModule
-=======
-    NgbModule,
+    BrowserAnimationsModule,
     AnalyticsModule // feature module
->>>>>>> naya
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
