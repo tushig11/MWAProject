@@ -1,0 +1,65 @@
+{
+    "tags": [
+        {
+        "id": 1,
+        "name": "angular",
+        "description": "Questions about Angular (not to be confused with AngularJS), the web framework from Google. Use this tag for Angular questions",
+        "count": 100,
+        "created": "2018-01-13T17:54:52Z"
+        },
+        {
+        "id": 2,
+        "name": "mongodb",
+        "description": "a scalable, high-performance, open source, document-oriented NoSQL database. It supports a large number of languages.",
+        "count": 81,
+        "created": "2019-03-11T07:32:05Z"
+        },
+        {
+        "id": 3,
+        "name": "express",
+        "description": "a flexible Node.js web application framework, providing a robust set of features for building web applications.",
+        "count": 60,
+        "created": "2018-03-11T07:32:05Z"
+        },
+        {
+        "id": 4,
+        "name": "nodejs",
+        "description": "Node.js is an event-based, non-blocking, asynchronous I/O runtime that uses Google's V8 JavaScript engine and libuv library.",
+        "count": 25,
+        "created": "2003-02-27T11:39:46Z"
+        }
+    ],
+
+    "users":[
+        {
+        "id": 1,
+        "name": "Gantushig",
+        "reputation": 3689
+        },
+        {
+        "id": 2,
+        "name": "Naya",
+        "reputation": 1234
+        },
+        {
+        "id": 3,
+        "name": "Houssam",
+        "reputation": 14000
+        }
+    ],
+
+    "topics":[
+        {
+        "id": 1,
+        "name": "Location001"
+        },
+        {
+        "id": 2,
+        "name": "Location002"
+        },
+        {
+        "id": 3,
+        "name": "Location003"
+        }
+    ]
+}
