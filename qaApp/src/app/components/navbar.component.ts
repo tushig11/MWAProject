@@ -4,20 +4,24 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-navbar',
   template: `
-    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-      <div class="container">
-        <a class="navbar-brand" href="#">Q&A</a>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a [routerLink]="['']">Home</a>
-          </li>
-          <li class="nav-item" >
-            <a [routerLink]="['login']" *ngIf="!user; else elseBlock">Login/Signup</a>
-          </li>
-          <ng-template #elseBlock><a [routerLink]="['login']">{{"Hi "+user.firstname}}</a></ng-template>
-        </ul>
-      </div>
-    </nav>
+  <nav>
+    <ul nz-menu nzMode="horizontal" class="pl20">
+        <li nz-menu-item>
+          Q&A application
+        </li>
+        <li nz-menu-item nzSelected>
+          <i nz-icon nzType="home"></i>
+          Home
+        </li>
+        <li nz-menu-item>
+          <i nz-icon nzType="form"></i>
+          Answers
+        </li>
+        <li nz-menu-item nz-popover nzTitle="Title" [nzContent]="contentTemplate" nzPlacement="bottom">
+          Login
+        </li>
+    </ul>
+  </nav>
   `,
   styles: []
 })

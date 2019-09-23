@@ -5,9 +5,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-login',
   template: `
-  <ngb-tabset type="pills">
-  <ngb-tab title="Login">
-    <ng-template ngbTabContent>
+
       <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
         <div class="form-group">
           <label for="email">Email address</label>
@@ -23,10 +21,7 @@ import { Component, OnInit } from '@angular/core';
         </div>
         <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
       </form>   
-    </ng-template>
-  </ngb-tab>
-  <ngb-tab title="Signup">
-    <ng-template ngbTabContent>
+
       <form #signupForm="ngForm" (ngSubmit)="onRegister(signupForm)">
         <div class="form-group">
           <label for="fname">Email address</label>
@@ -46,9 +41,7 @@ import { Component, OnInit } from '@angular/core';
         </div>
         <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">Sign up</button>
       </form> 
-    </ng-template>
-  </ngb-tab>
-</ngb-tabset> 
+
   `
 })
 export class LoginComponent implements OnInit {
