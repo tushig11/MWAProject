@@ -16,7 +16,7 @@ import en from '@angular/common/locales/en';
 registerLocaleData(en);
 
 // import the feature module here so you can add it to the imports array below
-import { AnalyticsModule } from './analytics/analytics.module';
+import { AnalyticsModule } from './modules/analytics/analytics.module';
 
 @NgModule({
   declarations: [
