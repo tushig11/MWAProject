@@ -1,0 +1,38 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  
+  <div class="form-group">
+    <select class="custom-select" name="category" [ngModel]="user.category" required>
+      <option value="">Select a category</option>
+      <option value="Cooking">Cooking</option>
+      <option value="Design">Design</option>
+      <option value="Sports">Sports</option>
+      <option value="Science">Science</option>
+      <option value="Technology">Technology</option>
+      <option value="Health">Health</option>
+      <option value="Buisness">Buisness</option>
+    </select>
+    <div class="invalid-feedback">You have to select a category</div>
+  </div>
+  
+    <div>
+      <label for="question">What is your question my dear?</label>
+      <input type="text"
+             class="form-control"
+             id="question"
+             [ngModel]="question.question"
+             name="question"
+             required>
+    </div>
+    
+    <div>
+      <label for="tags">Add some tags</label>
+      <input type="text"
+             class="form-control"
+             [ngModel]="question.tags"
+             name="tags">
+    </div>
+  <div>
+    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+  </div>
+  
+</form>
