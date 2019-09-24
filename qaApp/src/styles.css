@@ -1,4 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
-.pl20{
-    padding-left: 20%;
+.p16{
+    padding-left: 16%;
+    padding-right: 16%;
+}
+
+.fRight{
+    float: right;
+}
+
+nav{
+    margin-bottom: 30px;
+}
+
+.middleAlign{
+    text-align: center;
+}
+
+.inline{
+    display: inline;
+}
+
+.block{
+    display: block;
+}
+
+.subLink{
+    color: grey;
+}
+
+.vTop{
+    padding-left: 10px;
+    vertical-align: text-top;
+}
+
+.vMid{
+    vertical-align: middle;
+    padding-right: 10px;
 }
