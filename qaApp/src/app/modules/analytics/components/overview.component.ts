@@ -4,22 +4,24 @@ import { CalculationService } from 'src/app/services/calculation.service';
 @Component({
   selector: 'app-overview',
   template: `
-
   <div nz-row [nzGutter]="gutterSize">
-    <div nz-col [nzSpan]="24">
-      <nz-button-group class="fRight">
-        <button nz-button nzType="primary" >Week</button>
-        <button nz-button nzType="default" >Month</button>
-        <button nz-button nzType="default">Year</button>
-        <button nz-button nzType="default">All</button>
-      </nz-button-group>
-    </div>
+  <div nz-col [nzSpan]="12">
+    <h2>&nbsp;Dashboard</h2>
+  </div>  
+  <div nz-col [nzSpan]="12">
+    <nz-button-group class="fRight">
+      <button nz-button nzType="primary" >Week</button>
+      <button nz-button nzType="default" >Month</button>
+      <button nz-button nzType="default">Year</button>
+      <button nz-button nzType="default">All time</button>
+    </nz-button-group>
+  </div>
   </div>
   <br/>
   <div style="background: #ECECEC;padding:30px;">
   <div nz-row [nzGutter]="gutterSize">
     <div nz-col [nzSpan]="12">
-      <nz-card nzTitle="Top Users">
+      <nz-card nzTitle="Top Users by Reputation">
          <!-- Top Users -->
         <ul *ngIf="(users$ | async)?.length; else loading">
           <li *ngFor="let user of (users$ | async)">{{user.name}} {{user.reputation}}</li> 
@@ -27,7 +29,7 @@ import { CalculationService } from 'src/app/services/calculation.service';
       </nz-card>
     </div>
     <div nz-col [nzSpan]="12">
-      <nz-card nzTitle="Top Tags">
+      <nz-card nzTitle="Most Used Tags">
         <!-- Top Tags -->
         <ul *ngIf="(tags$ | async)?.length; else loading">
           <li *ngFor="let tag of (tags$ | async)">{{tag.name}} {{tag.count}}</li> 
@@ -36,15 +38,14 @@ import { CalculationService } from 'src/app/services/calculation.service';
     </div>
   </div>
   </div>
+  <div nz-row [nzGutter]="gutterSize">
+  <div nz-col [nzSpan]="24">
+    <img src="assets/dashboard.jpg" width="1050" />
+  </div>
+  </div>
   
   `,
-  styles: [
-    `
-    p {
-      margin: 0;
-    }
-    `
-  ]
+  styles: []
 })
 export class OverviewComponent implements OnInit {
   gutterSize: number = 16;

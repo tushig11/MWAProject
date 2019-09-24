@@ -3,23 +3,39 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-tags',
   template: `
-    <p>
-      tags works!
-    </p>
 
-
-  <div nz-row>
-
-    <div nz-col nzSpan="14">
-        left
-    </div> 
-    <div nz-col nzSpan="5">
-        right
-    </div> 
-    
+  <div nz-row [nzGutter]="gutterSize">
+    <div nz-col [nzSpan]="12">
+      <h2>&nbsp;Tags</h2>
+    </div>  
+    <div nz-col [nzSpan]="12">
+      <nz-button-group class="fRight">
+        <button nz-button nzType="primary" >Popular</button>
+        <button nz-button nzType="default" >New</button>
+        <button nz-button nzType="default">Name</button>
+      </nz-button-group>
+    </div>
   </div>
-
-
+  <br/>
+  <div style="background: #ECECEC;padding:30px;">
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="8">
+      <nz-card nzTitle="angular">
+        <p>The web framework from Google.</p>
+      </nz-card>
+    </div>
+    <div nz-col [nzSpan]="8">
+      <nz-card nzTitle="mongodb">
+        <p>Card content</p>
+      </nz-card>
+    </div>
+    <div nz-col [nzSpan]="8">
+      <nz-card nzTitle="nodejs">
+        <p>Card content</p>
+      </nz-card>
+    </div>
+  </div>
+</div>
 
   `,
   styles: []
