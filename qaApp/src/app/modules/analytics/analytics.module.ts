@@ -11,20 +11,23 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzCommentModule } from 'ng-zorro-antd/comment';
+import { NzCardModule } from 'ng-zorro-antd/card';
 
 import { DashboardComponent } from './dashboard.component';
 import { SimpleComponent } from './components/simple.component';
 import { TagsComponent } from './components/tags.component';
 import { UsersComponent } from './components/users.component';
+import { OverviewComponent } from './components/overview.component';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent, SimpleComponent, TagsComponent, UsersComponent],
+  declarations: [DashboardComponent, SimpleComponent, TagsComponent, UsersComponent, OverviewComponent],
   imports: [
     CommonModule, HttpClientModule, AnalyticsRoutingModule,
      //ng-zorro modules
-    NzPopoverModule, NzAvatarModule, NzButtonModule, NzGridModule, NzIconModule, NzInputModule, NzMenuModule, NzCommentModule
+    NzPopoverModule, NzAvatarModule, NzButtonModule, NzGridModule, NzIconModule, NzInputModule, NzMenuModule, NzCommentModule,
+    NzCardModule
 
   ],
   exports: [

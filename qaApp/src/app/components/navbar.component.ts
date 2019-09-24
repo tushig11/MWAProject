@@ -4,8 +4,8 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-navbar',
   template: `
-  <nav>
-    <ul nz-menu nzMode="horizontal" class="pl20">
+  <nav >
+    <ul nz-menu nzMode="horizontal" class="p16">
       <li nz-menu-item>
       Q&A application
       </li>

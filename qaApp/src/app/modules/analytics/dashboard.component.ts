@@ -6,57 +6,19 @@ import { CalculationService } from '../../services/calculation.service';
 @Component({
   selector: 'app-dashboard',
   template: `
-  <div nz-row>
-      <div nz-col nzSpan="12">
-       <!-- Top Users -->
-        <button (click)="fetchUsers()">Users</button>
-        <ul *ngIf="(users$ | async)?.length; else loading">
-          <li *ngFor="let user of (users$ | async)">{{user.name}} {{user.reputation}}</li> 
-        </ul>
-      </div>
-      <div nz-col nzSpan="12">  
-      <!-- Top Tags -->
-        <button (click)="fetchTags()">Top Tags</button>
-        <ul *ngIf="(tags$ | async)?.length; else loading">
-          <li *ngFor="let tag of (tags$ | async)">{{tag.name}} {{tag.count}}</li> 
-        </ul>
-      </div>
-  </div>
 
-
-  <div nz-row>
-    <div nz-col nzSpan="24">
-
-    <button (click)="testService()">User Profile</button>
-    <!-- Selected User Statistics -->
-    <div *ngIf="userinfo">
-      <h2> {{userinfo.name}}</h2>
-      <ul>
-        <li><b>Reputation</b>: {{userinfo.reputation}}</li> 
-        <li><b>Questions</b>: {{userinfo.questionCount}}</li>
-        <li><b>Answers</b>: {{userinfo.answerCount}}</li>
+  <div nz-row [nzAlign]="middle" [nzGutter]="gutterSize">
+  <div nz-col nzSpan="5">
+      <ul nz-menu>
+          <li nz-menu-item [routerLink]="['overview']">Overview</li>
+          <li nz-menu-item [routerLink]="['tags']">Tags</li>
+          <li nz-menu-item [routerLink]="['users']">Users</li>
       </ul>
-
-      <ul *ngIf="(userinfo.mostVotedQuestions)?.length"> <b>Most Voted Questions:</b> 
-        <li *ngFor="let question of userinfo.mostVotedQuestions">{{question.vote}} - {{question.title}}</li> 
-      </ul> 
-      <ul *ngIf="(userinfo.mostVotedAnswers)?.length"> <b>Most Voted Answers:</b> 
-        <li *ngFor="let answer of userinfo.mostVotedAnswers">{{answer.vote}} - {{answer.title}}</li> 
-      </ul> 
-      <ul *ngIf="(userinfo.mostUsedTags)?.length"> <b>Most Used Tags:</b> 
-        <li *ngFor="let tag of userinfo.mostUsedTags">{{tag.vote}} - {{tag.title}}</li> 
-      </ul> 
-    </div>
-    </div>
   </div>
-
-  <div nz-row>
-  <div nz-col nzSpan="24">
-    <ng-template #loading>
-    <div>Waiting ... (Click Any Button)</div>
-    </ng-template>
-  </div>
-  </div>
+  <div nz-col nzSpan="19">
+      <router-outlet></router-outlet>
+  </div> 
+</div>
   `,
   styles: []
 })

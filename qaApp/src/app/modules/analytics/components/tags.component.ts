@@ -6,6 +6,21 @@ import { Component, OnInit } from '@angular/core';
     <p>
       tags works!
     </p>
+
+
+  <div nz-row>
+
+    <div nz-col nzSpan="14">
+        left
+    </div> 
+    <div nz-col nzSpan="5">
+        right
+    </div> 
+    
+  </div>
+
+
+
   `,
   styles: []
 })
