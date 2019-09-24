@@ -47,4 +47,4 @@ Thumbs.db
 
 # API / EXPRESS
 src/app-server/node_modules
-src/app-server/config.env
+src/app-server/.env
