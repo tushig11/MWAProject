@@ -12,11 +12,11 @@ export class CalculationService {
 
   // 1. General Analytics Services
   getTopUsers(criteria: string = "by-reputation", sort: string = "desc", limit: number = 10 ) {
-    return this.http.get(`http://localhost:3000/users/`);
+    return this.http.get(`http://localhost:3000/topusers/`);
   }
 
   getTopTags(criteria: string = "by-count", sort: string = "desc", limit: number = 10) {
-    return this.http.get(`http://localhost:3000/tags/`);
+    return this.http.get(`http://localhost:3000/toptags/`);
   }
 
   // 2. Calculations for a Single User
@@ -34,7 +34,7 @@ export class CalculationService {
   }
  
   getUserAnalytics(userid) {
-    return this.http.get(`http://localhost:3000/users/${userid}`);
+    return this.http.get(`http://localhost:3000/topusers/${userid}`);
   }
 
 
