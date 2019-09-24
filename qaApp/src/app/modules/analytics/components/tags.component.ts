@@ -20,9 +20,12 @@ import { Component, OnInit } from '@angular/core';
   <div style="background: #ECECEC;padding:30px;">
   <div nz-row [nzGutter]="8">
     <div nz-col [nzSpan]="8">
-      <nz-card nzTitle="angular">
+      <nz-card nzTitle="angular"  [nzExtra]="extraTemplate">
         <p>The web framework from Google.</p>
       </nz-card>
+      <ng-template #extraTemplate>
+      <a>100</a>
+    </ng-template>
     </div>
     <div nz-col [nzSpan]="8">
       <nz-card nzTitle="mongodb">
