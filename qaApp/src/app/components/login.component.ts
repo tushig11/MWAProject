@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   template: `
+  <div nz-row>
+    <div nz-col nzSpan="6" >
       <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
         <div class="form-group">
           <label for="emailLogin">Email address</label>
@@ -20,17 +22,21 @@ import { Router } from '@angular/router';
         </div>
         <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
       </form>
-      <app-signup></app-signup>
+    </div>
+  </div>
+
+
   `
 })
 export class LoginComponent implements OnInit {
 
   constructor(private dataService: DataService, private router: Router) {}
 
+  message;
+
   ngOnInit(){}
 
   onSubmit(form){
-    let user = this.dataService.login(form.value.email, form.value.password);
-    if(user) this.router.navigate(['./user']);
+    this.dataService.login(form.value.email, form.value.password)
   }
 }

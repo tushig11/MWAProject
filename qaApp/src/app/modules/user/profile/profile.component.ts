@@ -2,6 +2,7 @@ import { DataService } from './../../../services/data.service';
 import { Component } from '@angular/core';
 import { UploadFile } from 'ng-zorro-antd';
 import { Observable, Observer } from 'rxjs';
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Component({
   selector: 'app-profile',
@@ -25,21 +26,23 @@ export class ProfileComponent{
 
   numberOfFollowers: number = 4;
   gutterSize: number = 30;
+
   user: any = {
     firstname: "Guest",
     lastname: "Guest",
     biography: ""
   };
 
+  //profile pic
   loading = false;
   avatarUrl: string;
   msg: any;
 
-  constructor(private dataService: DataService){}
+  constructor(private dataService: DataService, private jwtService: JwtHelperService){}
 
   ngDoCheck(){
-    this.user = this.dataService.getUser();
-    console.log(this.user)
+    const token = localStorage.getItem("access_token");
+    this.user = this.jwtService.decodeToken(token);
   }
 
   onClick(){

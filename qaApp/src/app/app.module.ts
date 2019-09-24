@@ -23,6 +23,8 @@ import { NzPopoverModule } from 'ng-zorro-antd/popover';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzInputModule } from 'ng-zorro-antd/input';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -43,7 +45,7 @@ export function tokenGetter() {
     BrowserAnimationsModule,
     AnalyticsModule, // feature module
     //ng-zorro modules
-    NgZorroAntdModule, NzPopoverModule, NzAvatarModule, NzButtonModule, NzGridModule,
+    NgZorroAntdModule, NzPopoverModule, NzAvatarModule, NzButtonModule, NzGridModule, NzModalModule, NzInputModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
