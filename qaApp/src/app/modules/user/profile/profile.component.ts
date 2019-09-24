@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { DataService } from './../../../services/data.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  templateUrl: './profile.component.html'
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent{
 
-  constructor() { }
+  numberOfFollowers: number = 4;
+  gutterSize: number = 30;
+  user: any;
+  
+  constructor(private dataService: DataService){}
 
-  ngOnInit() {
+  ngDoCheck(){
+    this.user = this.dataService.getUser();
   }
 
 }

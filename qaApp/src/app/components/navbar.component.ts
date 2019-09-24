@@ -5,20 +5,23 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-navbar',
   template: `
   <nav>
-    <ul nz-menu nzMode="horizontal" class="pl20">
+    <ul nz-menu nzMode="horizontal" class="p16">
         <li nz-menu-item>
           Q&A application
         </li>
         <li nz-menu-item nzSelected>
-          <i nz-icon nzType="home"></i>
-          Home
+          <a [routerLink]="['']"><i nz-icon nzType="home"></i>Home</a>
         </li>
         <li nz-menu-item>
-          <i nz-icon nzType="form"></i>
-          Answers
+          <a [routerLink]="['user']"><i nz-icon nzType="form"></i>Answers</a>
         </li>
-        <li nz-menu-item nz-popover nzTitle="Title" [nzContent]="contentTemplate" nzPlacement="bottom">
-          Login
+        <li nz-menu-item class="fRight">
+          <button nz-button nzType="primary" [nzSize]="size">Add Question</button>
+        </li>
+        <li nz-menu-item class="fRight">
+          <nz-avatar *ngIf="user; else elseBlock" nzIcon="user" nz-popover nzTitle="Title" [nzContent]="contentTemplate" nzPlacement="bottom"
+          nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+          <ng-template #elseBlock><a [routerLink]="['login']">Login</a></ng-template>
         </li>
     </ul>
   </nav>
@@ -26,7 +29,7 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class NavbarComponent implements OnInit {
-
+  private size: string = "medium";
   private user = null;
 
   constructor(private dataService: DataService) {}

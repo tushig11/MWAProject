@@ -1,1 +1,58 @@
-<p>profile works!</p>
+<div nz-row [nzAlign]="middle" [nzGutter]="gutterSize">
+    <div nz-col nzSpan="5" class="middleAlign">
+        <nz-avatar [nzSize]="130" nzIcon="user"></nz-avatar>
+    </div>
+    <div nz-col nzSpan="14">
+        <div>
+            <h4 class="inline">Gantushig Javkhlan</h4> <i nz-icon nzType="edit" nzTheme="outline" class="vTop"></i>
+        </div>
+        <div>
+            <h6 class="inline">Add credential</h6><i nz-icon nzType="edit" nzTheme="outline" class="vTop"></i>
+        </div>
+        <div>
+            <p class="inline">Write description about yourself</p><i nz-icon nzType="edit" nzTheme="outline" class="vTop"></i>
+        </div>
+        <p>{{ numberOfFollowers }} Followers</p>
+        <hr>
+    </div>
+    <div nz-col nzSpan="5">
+        <div class="credential">
+            <div>
+                <h6 class="inline">Credentials & Highlights</h6><i nz-icon nzType="edit" nzTheme="outline" class="vTop"></i>
+            </div>
+                    
+            <hr>
+            <p><i nz-icon nzType="read" nzTheme="outline" class="vMid"></i> Add educational credential</p>
+            <p><i nz-icon nzType="environment" nzTheme="outline" class="vMid"></i> Add a location credential</p>
+        </div>
+
+    </div>
+</div>
+<div nz-row [nzAlign]="middle" [nzGutter]="gutterSize">
+    <div nz-col nzSpan="5">
+        <h6>Feeds</h6><hr>
+        <ul nz-menu>
+            <li nz-menu-item [routerLink]="['most']">Profile</li>
+            <li nz-menu-item [routerLink]="['answers']">Answers {{ 2 }}</li>
+            <li nz-menu-item [routerLink]="['questions']">Questions {{ 10 }}</li>
+            <li nz-menu-item [routerLink]="['followers']">Followers {{ 0 }}</li>
+            <li nz-menu-item [routerLink]="['following']">Following {{ 4 }}</li>
+            <li nz-menu-item [routerLink]="['dashboard']">Dashboard</li>
+        </ul>
+    </div>
+    <div nz-col nzSpan="14">
+        <router-outlet></router-outlet>
+    </div> 
+    <div nz-col nzSpan="5">
+        <div class="credential">
+            <h6>Know About</h6><hr>
+            <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
+                <input type="text" nz-input placeholder="Insert topic name" />
+            </nz-input-group>
+            <ng-template #suffixButton>
+                <button nz-button nzType="primary" nzSize="large" nzSearch>Add</button>
+            </ng-template>           
+        </div>
+    </div>    
+</div>
+
