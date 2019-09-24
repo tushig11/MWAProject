@@ -10,10 +10,43 @@ export class CalculationService {
   randomUserCount: number = 20;
   constructor( private http: HttpClient) { }
 
+  // 1. General Analytics Services
+  getTopUsers(criteria: string = "by-reputation", sort: string = "desc", limit: number = 10 ) {
+    return this.http.get(`http://localhost:3000/users/`);
+  }
+
+  getTopTags(criteria: string = "by-count", sort: string = "desc", limit: number = 10) {
+    return this.http.get(`http://localhost:3000/tags/`);
+  }
+
+  // 2. Calculations for a Single User
+
+  getUserReputation(userid): number {
+    return 100;
+  }
+
+  getUserQuestionCount(userid): number {
+    return 101;
+  }
+
+  getUserAnswerCount(userid): number {
+    return 102;
+  }
+ 
+  getUserAnalytics(userid) {
+    return this.http.get(`http://localhost:3000/users/${userid}`);
+  }
+
+
+
+ // Mixed Services 
+
   getObservableData(param:string) {
     return this.http.get(`http://localhost:3000/${param}/`);
     //return this.http.get('https://randomuser.me/api/?results=10');
   }
+
+
 
 /*
   getOnlineData() {
