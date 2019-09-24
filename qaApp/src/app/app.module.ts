@@ -5,12 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { QuestionComponent } from './question/question.component';
-
-// use FormsModule Only when using Template Driven Forms
-import { FormsModule } from '@angular/forms';
-// use ReactiveFormsModule Only when using Template Driven Forms
-import { ReactiveFormsModule } from '@angular/forms';
 import { AnswersComponent } from './answers/answers.component';
+import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { NzListModule } from 'ng-zorro-antd/list';
+
+
+
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
@@ -20,10 +25,13 @@ import { AnswersComponent } from './answers/answers.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgZorroAntdModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    NzListModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
