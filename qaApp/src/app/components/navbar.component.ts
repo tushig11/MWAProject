@@ -13,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
           <a [routerLink]="['']"><i nz-icon nzType="home"></i>Home</a>
         </li>
         <li nz-menu-item>
-          <a [routerLink]="['user']"><i nz-icon nzType="form"></i>Answers</a>
+          <a [routerLink]="['statistics']"><i nz-icon nzType="form"></i>Statistics</a>
         </li>
         <li nz-menu-item class="fRight">
           <button nz-button nzType="primary" [nzSize]="size">Add Question</button>

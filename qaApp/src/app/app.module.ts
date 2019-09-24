@@ -15,6 +15,7 @@ registerLocaleData(en);
 // import the feature module here so you can add it to the imports array below
 import { AnalyticsModule } from './analytics/analytics.module';
 import { SignupComponent } from './components/signup.component';
+import { JwtModule } from "@auth0/angular-jwt";
 
 //ng-zorr
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
@@ -22,6 +23,10 @@ import { NzPopoverModule } from 'ng-zorro-antd/popover';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzGridModule } from 'ng-zorro-antd/grid';
+
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
 
 @NgModule({
   declarations: [
@@ -38,7 +43,13 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
     BrowserAnimationsModule,
     AnalyticsModule, // feature module
     //ng-zorro modules
-    NgZorroAntdModule, NzPopoverModule, NzAvatarModule, NzButtonModule, NzGridModule
+    NgZorroAntdModule, NzPopoverModule, NzAvatarModule, NzButtonModule, NzGridModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ["localhost:4300"]
+      }
+    })
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

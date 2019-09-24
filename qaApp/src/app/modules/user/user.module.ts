@@ -19,6 +19,8 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzCommentModule } from 'ng-zorro-antd/comment';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 
 
@@ -28,7 +30,7 @@ import { NzCommentModule } from 'ng-zorro-antd/comment';
     CommonModule,
     UserRoutingModule,
     //ng-zorro modules
-    NzPopoverModule, NzAvatarModule, NzButtonModule, NzGridModule, NzIconModule, NzInputModule, NzMenuModule, NzCommentModule
+    NzPopoverModule, NzAvatarModule, NzButtonModule, NzGridModule, NzIconModule, NzInputModule, NzMenuModule, NzCommentModule, NzUploadModule, NzModalModule
   ],
   bootstrap: [ProfileComponent]
 })

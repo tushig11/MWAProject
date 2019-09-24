@@ -1,16 +1,31 @@
 <div nz-row [nzAlign]="middle" [nzGutter]="gutterSize">
     <div nz-col nzSpan="5" class="middleAlign">
-        <nz-avatar [nzSize]="130" nzIcon="user"></nz-avatar>
+        <nz-upload
+        class="avatar-uploader"
+        nzAction="https://jsonplaceholder.typicode.com/posts/"
+        nzName="avatar"
+        nzListType="picture-card"
+        [nzShowUploadList]="false"
+        [nzBeforeUpload]="beforeUpload"
+        (nzChange)="handleChange($event)"
+        >
+        <ng-container *ngIf="!avatarUrl">
+            <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
+            <div class="ant-upload-text">Upload</div>
+        </ng-container>
+        <img *ngIf="avatarUrl" [src]="avatarUrl" class="avatar" />
+        </nz-upload>
     </div>
     <div nz-col nzSpan="14">
         <div>
-            <h4 class="inline">Gantushig Javkhlan</h4> <i nz-icon nzType="edit" nzTheme="outline" class="vTop"></i>
+            <h4 class="inline" >{{ user.firstname + " " + user.lastname }}</h4>
         </div>
         <div>
-            <h6 class="inline">Add credential</h6><i nz-icon nzType="edit" nzTheme="outline" class="vTop"></i>
+            <h6 class="inline">Add credential</h6><i nz-icon nzType="edit" nzTheme="outline" class="vTop" (click)="onClick()"></i>
         </div>
         <div>
-            <p class="inline">Write description about yourself</p><i nz-icon nzType="edit" nzTheme="outline" class="vTop"></i>
+            <p class="inline" *ngIf="user.biography; else bioElse">{{ user.biography }}</p><i nz-icon nzType="edit" nzTheme="outline" class="vTop"></i>
+            <ng-template #bioElse><p class="inline">Write description about yourself</p></ng-template>
         </div>
         <p>{{ numberOfFollowers }} Followers</p>
         <hr>

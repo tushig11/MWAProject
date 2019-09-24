@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { from } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
+const apiUrl:string = 'http://localhost:4300';
 
 @Injectable({
   providedIn: 'root'
@@ -12,27 +15,9 @@ export class DataService {
       image: "",
       firstname: "Gantushig",
       lastname: "Javkhlan",
-      email: "a@gmail.com",
+      email: "a@a.com",
       password: "123",
-      education: {
-        school: "Maharishi University of Management",
-        main: {},
-        secondary: {},
-        degree: "",
-        end: ""
-      },
-      work: {
-        position: "Manager",
-        company: "Nike",
-        start: "",
-        end: "",
-        default: true
-      },
-      location: {
-        location: "",
-        start: "",
-        end: ""
-      },
+      biography: "",
       followers: [],
       following: [],
       questions: [],
@@ -55,17 +40,29 @@ export class DataService {
 
   private currentUser: any;
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   getUsers(){
     return from(this.userSample);
   }
 
   getUser(){
-    return this.currentUser;
+    if(this.currentUser)
+      return this.currentUser[0];
+    else
+      return null;
   }
+
   
   login(email:string, password:string){
+    this.http.post(apiUrl+'/login', {
+      email: email,
+      password: password
+    }).subscribe(
+      data => {
+      localStorage.setItem("token", data.toString());
+    })
+       
     this.currentUser = this.userSample.filter( user => user.email === email && user.password === password );
     if(this.currentUser && this.currentUser.length > 0){
       localStorage.setItem("currentUser", this.currentUser[0].email);

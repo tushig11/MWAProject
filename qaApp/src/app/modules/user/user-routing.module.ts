@@ -22,8 +22,6 @@ const routes: Routes = [
       { path: "following", component: FollowingComponent}
     ]
   },
-
-
 ];
 
 @NgModule({
