@@ -25,12 +25,9 @@
     "@ng-bootstrap/ng-bootstrap": "^5.1.1",
     "@ng-bootstrap/schematics": "^2.0.0-alpha.1",
     "bootstrap": "^4.0.0",
-<<<<<<< HEAD
     "dotenv": "^8.1.0",
     "jwt-decode": "^2.2.0",
-=======
     "jquery": "^1.9.1",
->>>>>>> naya
     "ng-zorro-antd": "^8.1.2",
     "popper.js": "^1.15.0",
     "rxjs": "~6.4.0",
