@@ -47,9 +47,8 @@
     <div nz-col nzSpan="5">
         <h6>Feeds</h6><hr>
         <ul nz-menu>
-            <li nz-menu-item [routerLink]="['most']">Profile</li>
+            <li nz-menu-item [routerLink]="['most']">Questions {{ questionCount }}</li>
             <li nz-menu-item [routerLink]="['answers']">Answers {{ 2 }}</li>
-            <li nz-menu-item [routerLink]="['questions']">Questions {{ 10 }}</li>
             <li nz-menu-item [routerLink]="['followers']">Followers {{ 0 }}</li>
             <li nz-menu-item [routerLink]="['following']">Following {{ 4 }}</li>
             <li nz-menu-item [routerLink]="['dashboard']">Dashboard</li>

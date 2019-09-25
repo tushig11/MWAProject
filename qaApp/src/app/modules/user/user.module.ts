@@ -22,7 +22,7 @@ import { NzCommentModule } from 'ng-zorro-antd/comment';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
-
+import { NzTagModule } from 'ng-zorro-antd/tag';
 
 
 @NgModule({
@@ -31,7 +31,7 @@ import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
     CommonModule,
     UserRoutingModule,
     //ng-zorro modules
-    NzPopoverModule, NzAvatarModule, NzButtonModule, NzGridModule, NzIconModule, NzInputModule, NzMenuModule, NzCommentModule, NzUploadModule, NzModalModule, NzAutocompleteModule
+    NzPopoverModule, NzAvatarModule, NzButtonModule, NzGridModule, NzIconModule, NzInputModule, NzMenuModule, NzCommentModule, NzUploadModule, NzModalModule, NzAutocompleteModule, NzTagModule
   ],
   bootstrap: [ProfileComponent]
 })

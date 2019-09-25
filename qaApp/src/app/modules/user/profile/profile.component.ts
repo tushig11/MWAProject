@@ -38,13 +38,14 @@ export class ProfileComponent{
   avatarUrl: string;
   msg: any;
 
+  questionCount: number;
   constructor(private dataService: DataService, private jwtService: JwtHelperService){}
-
 
   ngDoCheck(){
     const token = localStorage.getItem("access_token");
     this.topics = JSON.parse(localStorage.getItem("topics"));
     this.user = this.jwtService.decodeToken(token);
+    this.questionCount = JSON.parse(localStorage.getItem("questions")).length;
   }
 
   onClick(){

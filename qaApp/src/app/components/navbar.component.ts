@@ -1,5 +1,5 @@
 import { DataService } from './../services/data.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -84,7 +84,7 @@ export class NavbarComponent implements OnInit {
   topic: String = " ";
   tags: string[] = [];
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private cd: ChangeDetectorRef) {}
 
   show: boolean = false;
 
@@ -120,6 +120,7 @@ export class NavbarComponent implements OnInit {
     this.title = "";
     this.topic = "";
     this.tags = [];
+    this.dataService.getQuestions();
   }
 
   handleCancel(): void {

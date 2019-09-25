@@ -57,9 +57,12 @@ export class DataService {
       return null;
   }
 
-  getQuestionsOfUser(){
-    this.http.get(apiUrl+'/profile/questions').subscribe(
-      data=>console.log(data)
+  getQuestions(){
+    this.http.get(apiUrl+'/questions').subscribe(
+      data=>{
+        console.log(data);
+        localStorage.setItem("questions", JSON.stringify(data))
+      }
     )
   }
 
@@ -76,6 +79,7 @@ export class DataService {
     this.http.post(apiUrl+'/questions/add', obj).subscribe(
       data => {
         console.log(data['message']);
+        this.getQuestions();
       }
     )     
   }
