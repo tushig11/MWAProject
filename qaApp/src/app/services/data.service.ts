@@ -10,36 +10,6 @@ const apiUrl:string = 'http://localhost:4300';
 })
 export class DataService {
 
-  QASample = [{
-    _id:19,
-    topic:'Angular',
-    question: 'What is component?',
-    tags: ['Angular'],
-      answer:[{
-        ans:'I guess it is the best practice in the software development since it is extremely easy and time efficient.',
-        vote:[5,100,3,4]},
-      {
-        ans:'Its an idea of breaking large, complex software applications into a series of pre-built and easily developed, understood, and changeable software modules.',
-        vote:[20,30,4]},
-      {
-        ans:'Example, if you have textboxes, dropdowns, checkboxes…etc in your page. We can write seperate components for these along with those functions. So that same component can be used in every other pages where we want that to appear.',
-        vote:[5,4,20,30,4]}
-    ]
-  },
-  {
-    _id:20,
-    topic:'NodeJS',
-    question: 'How can I become an expert in AngularJS and NodeJS?',
-    tags: ['NodeJS','AngularJS'],
-    answer:[{
-        ans:'Learn basics, Expert is one who knows basics very well than others :)',
-        vote:[5,25,100,3,4]},
-      {
-        ans:'To become a Node.js developer it is enough to know only Node.js, but with front-end frameworks along with Node.js, makes you a badass JavaScript developer with the above-mentioned skills and tools to build all sorts of web applications.',
-        vote:[5,4,20,30,4]}]
-  },
-];
-
 panels = [
   {
     active: true,
