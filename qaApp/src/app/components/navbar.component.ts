@@ -98,6 +98,9 @@ export class NavbarComponent implements OnInit {
       this.user = true;
     else
       this.user = false;
+
+    if(localStorage.getItem("topics"))
+      this.topics = JSON.parse(localStorage.getItem("topics"))
   }
 
   logout(){

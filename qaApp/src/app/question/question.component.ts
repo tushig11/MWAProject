@@ -17,7 +17,6 @@ export class QuestionComponent implements OnInit{
   constructor(private dataService : DataService, private router: Router) {
     this.dataService.getQuestions();
     this.data = JSON.parse(localStorage.getItem('questions'));
-    
   }
 
   ngOnInit(){

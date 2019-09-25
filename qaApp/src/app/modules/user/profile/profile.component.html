@@ -58,15 +58,18 @@
         <router-outlet></router-outlet>
     </div> 
     <div nz-col nzSpan="5">
-        <div class="credential">
-            <h6>Know About</h6><hr>
+        <div class="credential" class="mtb20">
+            <h6>Add new Topic</h6><hr>
             <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
-                <input type="text" nz-input placeholder="Insert topic name" />
+                <input type="text" nz-input placeholder="Insert topic name" #newTopic/>
             </nz-input-group>
             <ng-template #suffixButton>
-                <button nz-button nzType="primary" nzSize="large" nzSearch>Add</button>
+                <button nz-button nzType="primary" nzSize="large" nzSearch (click)="addTopic(newTopic.value)">Add</button>
             </ng-template>           
         </div>
+        <p *ngFor="let top of topics">
+            {{ top }}
+        </p>
     </div>    
 </div>
 

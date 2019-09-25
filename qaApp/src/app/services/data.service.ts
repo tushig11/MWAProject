@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { from } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -37,45 +36,6 @@ panels = [
   }
 ];
 
-///////////////////////show the questions/////////////////////////
-sortByVote(a:any,b:any){
-  return b['vote'].length-a['vote'].length;
-}
-
-getQuestion(qn:number){
-  const questions = JSON.parse(localStorage.getItem("questions"));
-  return questions.filter(x=>x._id==qn)[0];
-}
-
-showQAs(qn:number){
-  const questions = JSON.parse(localStorage.getItem("questions"));
-  const data = this.questions.filter(x=>x._id==qn)[0];
-  console.log(data);
-  return null;
-}
-
-addAnswer(obj:any, id:number){
-  this.http.patch(apiUrl+'/answer/add', {qid:id, obj:obj}).subscribe(
-    data => {
-      console.log(data['message']);
-      this.getQuestions();
-    }
-  )  
-}
-
-addVote(num:number, id:number){
-  this.http.patch(apiUrl+'/vote/add', {qid:id, obj:num}).subscribe(
-    data => {
-      console.log(data['message']);
-      this.getQuestions();
-    }
-  )  
-}
-
-getHQuestions(){
-  return this.QASample;
-}
-///////////////////////************///////////////////////////////
 
 
   private currentUser: any;
@@ -86,6 +46,50 @@ getHQuestions(){
 
   constructor(private http: HttpClient, private router: Router) {}
 
+  sortByVote(a:any,b:any){
+    return b['vote'].length-a['vote'].length;
+  }
+
+  getQuestion(qn:number){
+    const questions = JSON.parse(localStorage.getItem("questions"));
+    return questions.filter(x=>x._id==qn)[0];
+  }
+
+  showQAs(qn:number){
+    const questions = JSON.parse(localStorage.getItem("questions"));
+    const data = this.questions.filter(x=>x._id==qn)[0];
+    console.log(data);
+    return null;
+  }
+
+  addAnswer(obj:any, id:number){
+    this.http.patch(apiUrl+'/answer/add', {qid:id, obj:obj}).subscribe(
+      data => {
+        console.log("Answer: " + data['message']);
+        this.getQuestions();
+      }
+    )  
+  }
+
+  addVote(num:number, id:number){
+    this.http.patch(apiUrl+'/vote/add', {qid:id, obj:num}).subscribe(
+      data => {
+        console.log(data['message']);
+        this.getQuestions();
+      }
+    )  
+  }
+
+  addTopic(val:String){
+    this.http.post(apiUrl+"/topic/add", {name: val}).subscribe(
+      data=>{
+        console.log("Topic: " + data['message']);
+        this.getTopics();
+      }
+    )
+    
+  }
+
   async login(email:string, password:string){
     this.http.post(apiUrl+'/login', {
       email: email,
@@ -93,11 +97,13 @@ getHQuestions(){
     }).subscribe(
       data => {
         if(data.hasOwnProperty("message")){
-          console.log(data['message']);
+          console.log("Login: " + data['message']);
         }
         else{
           this.currentUser = data;
           localStorage.setItem("access_token", data.toString());
+          this.getQuestions();
+          this.getTopics();
           this.router.navigate(['./user']);
           this.getTopics();
         }
@@ -115,6 +121,8 @@ getHQuestions(){
       data => {
         localStorage.setItem("access_token", data.toString())
         this.router.navigate(['./user']);
+        this.getQuestions();
+        this.getTopics();
       }
     )    
   }
@@ -129,7 +137,7 @@ getHQuestions(){
   getQuestions(){
     this.http.get(apiUrl+'/questions').subscribe(
       data=>{
-        if(data['message']) console.log(data);
+        if(data['message']) console.log("Questions: " + data);
         else localStorage.setItem("questions", JSON.stringify(data))
       }
     )

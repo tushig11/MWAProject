@@ -37,6 +37,7 @@ export class ProfileComponent{
   loading = false;
   avatarUrl: string;
   msg: any;
+  newTopic: string;
 
   questionCount: number;
   constructor(private dataService: DataService, private jwtService: JwtHelperService){}
@@ -48,8 +49,8 @@ export class ProfileComponent{
     this.questionCount = JSON.parse(localStorage.getItem("questions")).length;
   }
 
-  onClick(){
-    console.log("hello");
+  addTopic(val:String){
+    this.dataService.addTopic(val);
   }
 
   //profile picture

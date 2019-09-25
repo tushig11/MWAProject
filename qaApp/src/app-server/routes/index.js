@@ -73,11 +73,17 @@ router.get('/questions/:id', validateToken, (req, res, next) => {
 })
 
 router.post('/questions/add', validateToken, (req, res, next) => {
-
   req.questionCollection.count().then(
     data => req.questionCollection.insertOne({_id:data+1, ...req.body,answer:[]})
   )
   res.json({message:"Question added Successfully"});
+})
+
+router.post('/topic/add', validateToken, (req, res, next) => {
+  req.topicCollection.count().then(
+    data => req.topicCollection.insertOne({_id:data+1, ...req.body})
+  )
+  res.json({message:"Topic added Successfully"});
 })
 
 router.patch('/answer/add', validateToken, (req, res, next) => {
