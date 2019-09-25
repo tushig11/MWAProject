@@ -48,3 +48,6 @@ Thumbs.db
 # API / EXPRESS
 src/app-server/node_modules
 src/app-server/.env
+
+# Local MongoDB Development Server
+src/local-server
