@@ -1,0 +1,5 @@
+<div *ngFor="let quest of data">
+    <a [routerLink]="['answers', quest.questionID]"><h4>{{quest.question}}</h4></a>
+    <hr>
+    <br>
+</div>

@@ -6,11 +6,14 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login.component';
 import { NavbarComponent } from './components/navbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { QuestionComponent } from './question/question.component';
+import { AnswersComponent } from './answers/answers.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import { NzListModule } from 'ng-zorro-antd/list';
 
-registerLocaleData(en);
 
 // import the feature module here so you can add it to the imports array below
 import { AnalyticsModule } from './analytics/analytics.module';
@@ -31,28 +34,33 @@ export function tokenGetter() {
   return localStorage.getItem("access_token");
 }
 
+registerLocaleData(en);
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavbarComponent,
     SignupComponent,
+    QuestionComponent,
+    AnswersComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule,
+    NgbModule,
+    FormsModule, ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule, AppRoutingModule,
     AnalyticsModule, // feature module
     //ng-zorro modules
     NgZorroAntdModule, NzPopoverModule, NzAvatarModule, NzButtonModule, NzGridModule, NzModalModule, NzInputModule, NzSelectModule,
+    NzListModule, NgZorroAntdModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
         whitelistedDomains: ["localhost:4300"]
       }
-    })
+    }) 
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
