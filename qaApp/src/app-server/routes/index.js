@@ -75,9 +75,19 @@ router.get('/questions/:id', validateToken, (req, res, next) => {
 router.post('/questions/add', validateToken, (req, res, next) => {
 
   req.questionCollection.count().then(
-    data => req.questionCollection.insertOne({_id:data+1, ...req.body})
+    data => req.questionCollection.insertOne({_id:data+1, ...req.body,answer:[]})
   )
   res.json({message:"Question added Successfully"});
+})
+
+router.patch('/answer/add', validateToken, (req, res, next) => {
+  req.questionCollection.updateOne( { _id : parseInt(req.body.qid) }, { $push: { "answer": req.body.obj } });
+  res.json({message:"Answer added Successfully"});
+})
+
+router.patch('/vote/add', validateToken, (req, res, next) => {
+  req.questionCollection.updateOne( { _id : parseInt(req.body.qid) }, { answer: {$push: { "vote": req.body.obj }}});
+  res.json({message:"Vote added Successfully"});
 })
 
 function validateToken(req, res, next){

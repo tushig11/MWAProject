@@ -16,15 +16,12 @@ export class DataService {
     question: 'What is component?',
     tags: ['Angular'],
       answer:[{
-        userID:'1',
         ans:'I guess it is the best practice in the software development since it is extremely easy and time efficient.',
         vote:[5,100,3,4]},
       {
-        userID:'18',
         ans:'Its an idea of breaking large, complex software applications into a series of pre-built and easily developed, understood, and changeable software modules.',
         vote:[20,30,4]},
       {
-        userID:'19',
         ans:'Example, if you have textboxes, dropdowns, checkboxes…etc in your page. We can write seperate components for these along with those functions. So that same component can be used in every other pages where we want that to appear.',
         vote:[5,4,20,30,4]}
     ]
@@ -35,11 +32,9 @@ export class DataService {
     question: 'How can I become an expert in AngularJS and NodeJS?',
     tags: ['NodeJS','AngularJS'],
     answer:[{
-        userID:'20',
         ans:'Learn basics, Expert is one who knows basics very well than others :)',
         vote:[5,25,100,3,4]},
       {
-        userID:'18',
         ans:'To become a Node.js developer it is enough to know only Node.js, but with front-end frameworks along with Node.js, makes you a badass JavaScript developer with the above-mentioned skills and tools to build all sorts of web applications.',
         vote:[5,4,20,30,4]}]
   },
@@ -78,15 +73,33 @@ sortByVote(a:any,b:any){
 }
 
 getQuestion(qn:number){
-  const data = this.QASample.filter(x=>x._id==qn)[0];
-  if(data) return data.question;
-  else return null;
+  const questions = JSON.parse(localStorage.getItem("questions"));
+  return questions.filter(x=>x._id==qn)[0];
 }
 
 showQAs(qn:number){
-  const data = this.QASample.filter(x=>x._id==qn)[0];
-  if(data) return data.answer.sort(this.sortByVote);
-  else return null;
+  const questions = JSON.parse(localStorage.getItem("questions"));
+  const data = this.questions.filter(x=>x._id==qn)[0];
+  console.log(data);
+  return null;
+}
+
+addAnswer(obj:any, id:number){
+  this.http.patch(apiUrl+'/answer/add', {qid:id, obj:obj}).subscribe(
+    data => {
+      console.log(data['message']);
+      this.getQuestions();
+    }
+  )  
+}
+
+addVote(num:number, id:number){
+  this.http.patch(apiUrl+'/vote/add', {qid:id, obj:num}).subscribe(
+    data => {
+      console.log(data['message']);
+      this.getQuestions();
+    }
+  )  
 }
 
 getHQuestions(){

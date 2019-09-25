@@ -11,36 +11,34 @@ export class AnswersComponent implements OnInit {
 
   inputValue:String;
   gutter:number = 40;
-  data:any=[];
-  ans:string;
-  question:string;
-  constructor(private dataService : DataService, private route: ActivatedRoute) {}
   panels: any;
+  ans:string;
+  question: any;
+  constructor(private dataService : DataService, private route: ActivatedRoute) {}
+  
 
   ngOnInit(){
-    var id = this.route.snapshot.params.id;
-    this.loadData(id);
     this.panels = this.dataService.getPanels();
+    this.loadData(this.route.snapshot.params.id);
   }
 
   loadData(pi: number): void {
-    this.data.push(this.dataService.showQAs(pi));
     this.question = this.dataService.getQuestion(pi);
+    console.log(this.question);
   }
 
   go(){
      let mem = {
-      userID:'2',
       ans:this.inputValue,
-      comment:[],
-      vote:[],
-      shares:[]}
-     this.data[0].push(mem)
+      vote:[]
+    }
+    this.dataService.addAnswer(mem, this.route.snapshot.params.id);
+    this.question.answer.push(mem);
+    this.inputValue = null;
   }
 
-  addvote(vote){
-      vote.push(Math.random())
+  addvote(vote:any){
+      vote.push(1);
   }
-
 
 }

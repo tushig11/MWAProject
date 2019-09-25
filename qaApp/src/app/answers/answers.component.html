@@ -11,13 +11,15 @@
         </nz-collapse>       
     </div>
     <div nz-col nzSpan="12">
-        <h4>{{question}}</h4>
+        <h4>{{question.question}}</h4>
         <hr>
-        <div *ngFor="let answer of data[0]">
-            <h6>{{answer.ans}}</h6>
-            <button nz-button nzType="primary" (click)="addvote(answer.vote)" [nzLoading]="isLoadingTwo">
-                <i nz-icon nzType="arrow-up"></i> UpVote {{answer.vote.length}}
-            </button>
+        <div *ngFor="let answer of question.answer">
+            <div *ngIf="answer.ans">
+                <h6>{{answer.ans}}</h6>
+                <button nz-button nzType="primary" (click)="addvote(answer.vote)" [nzLoading]="isLoadingTwo">
+                    <i nz-icon nzType="arrow-up"></i> UpVote {{answer.vote.length}}
+                </button>
+            </div>
             <hr>
           </div>
           <h6>Enter your answer</h6>
