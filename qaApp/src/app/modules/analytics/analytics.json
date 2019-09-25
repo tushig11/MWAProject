@@ -66,69 +66,56 @@
     "toptags": [
         {
         "id": 1,
-        "name": "angular",
+        "name": "AngularJS",
         "description": "Questions about Angular, the web framework from Google. Use this tag for Angular questions",
         "count": 100,
         "created": "2018-01-13T17:54:52Z"
         },
         {
         "id": 2,
-        "name": "mongodb",
-        "description": "a scalable, high-performance, open source, document-oriented NoSQL database. It supports a large number of languages.",
+        "name": "MongoDB",
+        "description": "a scalable, high-performance, open source, document-oriented NoSQL database.",
         "count": 81,
         "created": "2019-03-11T07:32:05Z"
         },
         {
         "id": 3,
-        "name": "express",
+        "name": "ExpressJS",
         "description": "a flexible Node.js web application framework, providing a robust set of features for building web applications.",
         "count": 60,
         "created": "2018-03-11T07:32:05Z"
         },
         {
         "id": 4,
-        "name": "nodejs",
+        "name": "NodeJS",
         "description": "Node.js is an event-based, non-blocking, asynchronous I/O runtime that uses Google's V8 JavaScript engine and libuv library.",
         "count": 25,
         "created": "2003-02-27T11:39:46Z"
         },
         {
-            "id": 1,
-            "name": "angular",
-            "description": "Questions about Angular, the web framework from Google. Use this tag for Angular questions",
-            "count": 100,
-            "created": "2018-01-13T17:54:52Z"
-            },
-            {
-            "id": 2,
-            "name": "mongodb",
-            "description": "a scalable, high-performance, open source, document-oriented NoSQL database. It supports a large number of languages.",
-            "count": 81,
-            "created": "2019-03-11T07:32:05Z"
-            },
-            {
-            "id": 3,
-            "name": "express",
-            "description": "a flexible Node.js web application framework, providing a robust set of features for building web applications.",
-            "count": 60,
-            "created": "2018-03-11T07:32:05Z"
-            },
-            {
-            "id": 4,
-            "name": "nodejs",
-            "description": "Node.js is an event-based, non-blocking, asynchronous I/O runtime that uses Google's V8 JavaScript engine and libuv library.",
-            "count": 25,
-            "created": "2003-02-27T11:39:46Z"
-            }
+        "id": 5,
+        "name": "CSS",
+        "description": "Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML.",
+        "count": 16,
+        "created": "2018-01-13T17:54:52Z"
+        },
+        {
+        "id": 6,
+        "name": "HTML",
+        "description": "Hypertext Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser.",
+        "count": 11,
+        "created": "2019-03-11T07:32:05Z"
+        }
+         
     ],
 
     "topusers":[
         {
         "id": 1,
         "name": "Gantushig",
-        "reputation": 13689,
+        "reputation": 136,
         "questionCount": 2,
-        "answerCount": 214,
+        "answerCount": 5,
         "mostVotedQuestions": [
             {    
             "id": 1,
@@ -165,85 +152,179 @@
             
         },
         {
-        "id": 2,
-        "name": "Houssam",
-        "reputation": 9025,
-        "questionCount": 1,
-        "answerCount": 126,
-        "mostVotedQuestions": [
-            {    
-            "id": 1,
-            "title": "Question 1?", 
-            "vote": 26
-            }],
-        "mostVotedAnswers": [
-            {    
-            "id": 1,
-            "title": "The purpose of a NgModule is to declare each object you have in Angular Module, like components and services which belong together.", 
-            "vote": 140
-            }, 
-            {    
-            "id": 2,    
-            "title": "The RouterModule gives you a component <router-outlet> and a directive routerlink, but also services ActivatedRoute and Router.", 
-            "vote": 89
-            }],
-        "mostUsedTags": [
-            {    
-            "id": 1,
-            "title": "mongodb", 
-            "vote": 14
-            }, 
-            {    
-            "id": 2,    
-            "title": "anglular", 
-            "vote": 8
-            }]
-        },
-        {
-        "id": 3,
-        "name": "Naya",
-        "reputation": 1234,
-        "questionCount": 3,
-        "answerCount": 89,
-        "mostVotedQuestions": [
-            {    
-            "id": 1,
-            "title": "Question 1?", 
-            "vote": 26
-            }, 
-            {    
-            "id": 2,    
-            "title": "Question 2?", 
-            "vote": 15
+            "id": 4,
+            "name": "Houssam",
+            "reputation": 90,
+            "questionCount": 1,
+            "answerCount": 6,
+            "mostVotedQuestions": [
+                {    
+                "id": 1,
+                "title": "Question 1?", 
+                "vote": 26
+                }],
+            "mostVotedAnswers": [
+                {    
+                "id": 1,
+                "title": "The purpose of a NgModule is to declare each object you have in Angular Module, like components and services which belong together.", 
+                "vote": 140
+                }, 
+                {    
+                "id": 2,    
+                "title": "The RouterModule gives you a component <router-outlet> and a directive routerlink, but also services ActivatedRoute and Router.", 
+                "vote": 89
+                }],
+            "mostUsedTags": [
+                {    
+                "id": 1,
+                "title": "mongodb", 
+                "vote": 14
+                }, 
+                {    
+                "id": 2,    
+                "title": "anglular", 
+                "vote": 8
+                }]
             },
-            {    
-            "id": 2,    
-            "title": "Question 3?", 
-            "vote": 2
-            }],
-        "mostVotedAnswers": [
-            {    
-            "id": 1,
-            "title": "Guards are useful Service which allow you to control access to and from a Route/Component.", 
-            "vote": 14
-            }, 
-            {    
-            "id": 2,    
-            "title": "Lazy loading speeds up the application load time by splitting it into multiple bundles, and loading them on demand, ...", 
-            "vote": 9
-            }],
-        "mostUsedTags": [
-            {    
-            "id": 1,
-            "title": "angular", 
-            "vote": 5
-            }, 
-            {    
-            "id": 2,    
-            "title": "nodejs", 
-            "vote": 2
-            }]
-        }
+            {
+                "id": 3,
+                "name": "Tester",
+                "reputation": 45,
+                "questionCount": 3,
+                "answerCount": 3,
+                "mostVotedQuestions": [
+                    {    
+                    "id": 1,
+                    "title": "Question 1?", 
+                    "vote": 26
+                    }, 
+                    {    
+                    "id": 2,    
+                    "title": "Question 2?", 
+                    "vote": 15
+                    },
+                    {    
+                    "id": 2,    
+                    "title": "Question 3?", 
+                    "vote": 2
+                    }],
+                "mostVotedAnswers": [
+                    {    
+                    "id": 1,
+                    "title": "Guards are useful Service which allow you to control access to and from a Route/Component.", 
+                    "vote": 14
+                    }, 
+                    {    
+                    "id": 2,    
+                    "title": "Lazy loading speeds up the application load time by splitting it into multiple bundles, and loading them on demand, ...", 
+                    "vote": 9
+                    }],
+                "mostUsedTags": [
+                    {    
+                    "id": 1,
+                    "title": "angular", 
+                    "vote": 5
+                    }, 
+                    {    
+                    "id": 2,    
+                    "title": "nodejs", 
+                    "vote": 2
+                    }]
+                },
+        {
+            "id": 2,
+            "name": "Naya",
+            "reputation": 35,
+            "questionCount": 1,
+            "answerCount": 2,
+            "mostVotedQuestions": [
+                {    
+                "id": 1,
+                "title": "Question 1?", 
+                "vote": 26
+                }, 
+                {    
+                "id": 2,    
+                "title": "Question 2?", 
+                "vote": 15
+                },
+                {    
+                "id": 2,    
+                "title": "Question 3?", 
+                "vote": 2
+                }],
+            "mostVotedAnswers": [
+                {    
+                "id": 1,
+                "title": "Guards are useful Service which allow you to control access to and from a Route/Component.", 
+                "vote": 14
+                }, 
+                {    
+                "id": 2,    
+                "title": "Lazy loading speeds up the application load time by splitting it into multiple bundles, and loading them on demand, ...", 
+                "vote": 9
+                }],
+            "mostUsedTags": [
+                {    
+                "id": 1,
+                "title": "angular", 
+                "vote": 5
+                }, 
+                {    
+                "id": 2,    
+                "title": "nodejs", 
+                "vote": 2
+                }]
+            },
+
+            {
+                "id": 5,
+                "name": "Purev",
+                "reputation": 15,
+                "questionCount": 3,
+                "answerCount": 1,
+                "mostVotedQuestions": [
+                    {    
+                    "id": 1,
+                    "title": "Question 1?", 
+                    "vote": 26
+                    }, 
+                    {    
+                    "id": 2,    
+                    "title": "Question 2?", 
+                    "vote": 15
+                    },
+                    {    
+                    "id": 2,    
+                    "title": "Question 3?", 
+                    "vote": 2
+                    }],
+                "mostVotedAnswers": [
+                    {    
+                    "id": 1,
+                    "title": "Guards are useful Service which allow you to control access to and from a Route/Component.", 
+                    "vote": 14
+                    }, 
+                    {    
+                    "id": 2,    
+                    "title": "Lazy loading speeds up the application load time by splitting it into multiple bundles, and loading them on demand, ...", 
+                    "vote": 9
+                    }],
+                "mostUsedTags": [
+                    {    
+                    "id": 1,
+                    "title": "angular", 
+                    "vote": 5
+                    }, 
+                    {    
+                    "id": 2,    
+                    "title": "nodejs", 
+                    "vote": 2
+                    }]
+                }
+
+       
+      
     
     ],
 

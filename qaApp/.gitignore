@@ -47,11 +47,4 @@ Thumbs.db
 
 # API / EXPRESS
 src/app-server/node_modules
-<<<<<<< HEAD
 src/app-server/.env
-=======
-src/app-server/.env
-
-# Local MongoDB Development Server
-src/local-server
->>>>>>> naya
