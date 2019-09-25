@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './../services/data.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class QuestionComponent implements OnInit{
 
   data:any[]=[]
 
-  constructor(private dataService : DataService) {}
+  constructor(private dataService : DataService, private router: Router) {}
 
   ngOnInit(){
     this.loadData(1);

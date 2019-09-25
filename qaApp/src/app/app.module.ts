@@ -31,7 +31,8 @@ registerLocaleData(en);
     NgZorroAntdModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NzListModule
+    NzListModule,
+    AppRoutingModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

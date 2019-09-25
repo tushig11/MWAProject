@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-answers',
@@ -9,17 +10,34 @@ import { DataService } from '../services/data.service';
 export class AnswersComponent implements OnInit {
 
   data:any=[]
-  question:string = "Why my question not displaying";
-
-  constructor(private dataService : DataService) {}
+  ans:string;
+  question:string;
+  constructor(private dataService : DataService, private route: ActivatedRoute) {}
 
   ngOnInit(){
-    this.loadData(1);
+    var id = this.route.snapshot.params.id;
+    this.loadData(id);
   }
 
   loadData(pi: number): void {
-    this.data.push(this.dataService.showQAs(0));
-    console.log(this.data)
+    this.data.push(this.dataService.showQAs(pi));
+    this.question=this.dataService.getQuestion(pi);
   }
+
+  go(form){
+     let mem={
+      userID:'22',
+      ans:form.value.answer,
+      comment:[],
+      vote:[],
+      shares:[]}
+     
+     this.data[0].push(mem)
+  }
+
+  addvote(vote){
+      vote.push(Math.random())
+  }
+
 
 }

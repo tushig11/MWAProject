@@ -40,7 +40,7 @@ export class DataService {
       comment:[{userID:5 ,comnt:'I like your explanation, thank you'},
                {userID:4 ,comnt:'but why we have .....?'},
                {userID:25 ,comnt:'good explanation but I have more clarification about ......'}],
-      vote:[5,25,100,3,4],
+      vote:[5,100,3,4],
       shares:[5,25,4,30,24]},
       {
         userID:'18',
@@ -49,7 +49,7 @@ export class DataService {
                  {userID:7 ,comnt:'comment num 2'},
                  {userID:8 ,comnt:'comment num 3'},
                  {userID:10 ,comnt:'comment num 4'}],
-        vote:[5,4,20,30,4],
+        vote:[20,30,4],
         shares:[4,2,3]},
       {
         userID:'19',
@@ -91,13 +91,20 @@ export class DataService {
 
 
 ///////////////////////show the questions/////////////////////////
+sortByVote(a,b){
+  return b['vote'].length-a['vote'].length;
+}
+
+getQuestion(qn:number){
+  return this.QASample[qn-1].question
+}
 
 showQAs(qn:number){
-  return this.QASample[qn];
+  return this.QASample[qn-1].answer.sort(this.sortByVote)
 }
 
 getQuestions(){
-  return this.QASample.map( x => x.question );
+  return this.QASample;
 }
 ///////////////////////************///////////////////////////////
 
