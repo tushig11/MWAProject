@@ -11,6 +11,10 @@ const apiUrl:string = 'http://localhost:4300';
 export class DataService {
 
   private currentUser: any;
+  private topics: any;
+  private questions: any;
+  private users: any;
+
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -20,7 +24,6 @@ export class DataService {
       password: password
     }).subscribe(
       data => {
-        console.log();
         if(data.hasOwnProperty("message")){
           console.log(data['message']);
         }
@@ -54,9 +57,30 @@ export class DataService {
       return null;
   }
 
-  getQuestionsOfUser(){
-    this.http.get(apiUrl+'/profile/questions').subscribe(
-      data=>console.log(data)
+  getQuestions(){
+    this.http.get(apiUrl+'/questions').subscribe(
+      data=>{
+        console.log(data);
+        localStorage.setItem("questions", JSON.stringify(data))
+      }
     )
+  }
+
+  getTopics(){
+    this.http.get(apiUrl+'/topics').subscribe(
+      data => {
+        this.topics = data;
+        localStorage.setItem("topics", JSON.stringify(data));
+      }
+    )
+  }
+
+  addQuestion(obj){
+    this.http.post(apiUrl+'/questions/add', obj).subscribe(
+      data => {
+        console.log(data['message']);
+        this.getQuestions();
+      }
+    )     
   }
 }
