@@ -5,17 +5,22 @@ import { CalculationService } from 'src/app/services/calculation.service';
   selector: 'app-overview',
   template: `
   <div nz-row [nzGutter]="gutterSize">
-  <div nz-col [nzSpan]="12">
-    <h2>&nbsp;Dashboard</h2>
-  </div>  
-  <div nz-col [nzSpan]="12">
-    <nz-button-group class="fRight">
-      <button nz-button nzType="primary" >Week</button>
-      <button nz-button nzType="default" >Month</button>
-      <button nz-button nzType="default">Year</button>
-      <button nz-button nzType="default">All time</button>
-    </nz-button-group>
+    <div nz-col [nzSpan]="24">
+      <h2>Dashboard</h2>
+    </div>  
   </div>
+  <div nz-row [nzGutter]="gutterSize">
+    <div nz-col [nzSpan]="16">
+     <p class="fRight">17 Sep 2019 18:00 – 24 Sep 2019 17:00</p>
+    </div>  
+    <div nz-col [nzSpan]="8">
+      <nz-button-group class="fRight">
+        <button nz-button nzType="primary" >Week</button>
+        <button nz-button nzType="default" >Month</button>
+        <button nz-button nzType="default">Year</button>
+        <button nz-button nzType="default">All time</button>
+      </nz-button-group>
+    </div>
   </div>
   <br/>
   <div style="background: #ECECEC;padding:30px;">
@@ -48,7 +53,7 @@ import { CalculationService } from 'src/app/services/calculation.service';
   styles: []
 })
 export class OverviewComponent implements OnInit {
-  gutterSize: number = 16;
+  gutterSize: number = 24;
   userinfo;
   tags$;
   users$;

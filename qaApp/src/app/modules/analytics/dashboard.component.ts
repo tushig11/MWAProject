@@ -15,6 +15,7 @@ import { CalculationService } from '../../services/calculation.service';
           <li nz-menu-item [routerLink]="['users']">Users</li>
       </ul>
   </div>
+
   <div nz-col nzSpan="19">
       <router-outlet></router-outlet>
   </div> 

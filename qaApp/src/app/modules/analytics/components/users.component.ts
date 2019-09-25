@@ -1,81 +1,70 @@
 import { Component, OnInit } from '@angular/core';
+import { CalculationService } from '../../../services/calculation.service';
 
 @Component({
   selector: 'app-users',
   template: `
   <div nz-row [nzGutter]="gutterSize">
     <div nz-col [nzSpan]="24">
-      <h2>&nbsp;Tags</h2>
+      <h2>Users</h2>
     </div>  
   </div>
   <div nz-row [nzGutter]="gutterSize">
-    <div nz-col [nzSpan]="24">
-      <p></p>
+    <div nz-col [nzSpan]="6">
+      <nz-input-group [nzSuffix]="suffixIconSearch">
+        <input type="text" nz-input placeholder="input search text" />
+      </nz-input-group>
+      <ng-template #suffixIconSearch>
+        <i nz-icon nzType="search"></i>
+      </ng-template>
     </div>  
-  </div>
-  <div nz-row [nzGutter]="gutterSize">
-  <div nz-col [nzSpan]="12">
-    
-  </div>  
-  <div nz-col [nzSpan]="12">
-    <nz-button-group class="fRight">
-      <button nz-button nzType="primary" >Popular</button>
-      <button nz-button nzType="default" >New</button>
-      <button nz-button nzType="default">Name</button>
-    </nz-button-group>
-  </div>
-  </div>
-  <div class="gutter-example">
-    <div nz-row [nzGutter]="gutter">
-      <div nz-col class="gutter-row" [nzSpan]="24 / count" *ngFor="let i of generateArray(count)">
-        <div class="grid-config">
-          <div>
-            <nz-avatar [nzShape]="'square'" [nzSize]="64" [nzIcon]="'user'"></nz-avatar>
-          </div>
-
-        
-        </div>
-      </div>
+    <div nz-col [nzSpan]="18">
+      <nz-button-group class="fRight">
+        <button nz-button nzType="primary">Reputation</button>
+        <button nz-button nzType="default">New</button>
+        <button nz-button nzType="default">Answers</button>
+        <button nz-button nzType="default">Questions</button>
+      </nz-button-group>
     </div>
   </div>
+  <br/>
+  <nz-list [nzDataSource]="topusers" [nzRenderItem]="item" [nzGrid]="{ gutter: 16, xs: 24, sm: 12, md: 8, lg: 8, xl: 8 }">
+  <ng-template #item let-item>
+    <nz-list-item [nzContent]="nzContent">
+      <ng-template #nzContent>
+       
+        <nz-card [nzTitle]="item.name"  [nzExtra]="extraTemplate">
+     
+
+        <ul>
+          <li><b>Reputation</b>: {{item.reputation}}</li> 
+          <li><b>Questions</b>: {{item.questionCount}}</li>
+          <li><b>Answers</b>: {{item.answerCount}}</li>
+        </ul>
+        </nz-card>
+        <ng-template #extraTemplate>
+        <nz-avatar [nzSize]="small" nzIcon="user"></nz-avatar>
+        </ng-template>
+
+      </ng-template>
+    </nz-list-item>
+  </ng-template>
+</nz-list>
   `,
-  styles: [
-    `
-    .grid-config {
-      border: 1px solid gray;
-      height: 120px;
-      line-height: 120px;
-      font-size: 13px;
-    }
-    `
-  ]
+  styles: []
 })
 export class UsersComponent implements OnInit {
-  gutter = 16;
-  count = 3;
-  marksGutter = {
-    8: 8,
-    16: 16,
-    24: 24,
-    32: 32,
-    40: 40,
-    48: 48
-  };
-  marksCount = {
-    2: 2,
-    3: 3,
-    4: 4,
-    6: 6,
-    8: 8,
-    12: 12
-  };
+  topusers;
  
-  constructor() { }
+  constructor(private calcService:CalculationService) { }
 
   ngOnInit() {
+    //this.users$ = this.calcService.getTopUsers();
+    this.calcService.getTopUsers()
+    .subscribe(res => { this.topusers = res; 
+      console.log(this.topusers);
+    });
   }
 
-  generateArray(value: number): number[] {
-    return new Array(value);
-  }
+
 }

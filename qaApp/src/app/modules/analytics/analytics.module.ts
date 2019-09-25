@@ -12,6 +12,8 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzCommentModule } from 'ng-zorro-antd/comment';
 import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzBadgeModule } from 'ng-zorro-antd/badge';
+import { NzListModule } from 'ng-zorro-antd/list';
 
 import { DashboardComponent } from './dashboard.component';
 import { SimpleComponent } from './components/simple.component';
@@ -27,7 +29,7 @@ import { OverviewComponent } from './components/overview.component';
     CommonModule, HttpClientModule, AnalyticsRoutingModule,
      //ng-zorro modules
     NzPopoverModule, NzAvatarModule, NzButtonModule, NzGridModule, NzIconModule, NzInputModule, NzMenuModule, NzCommentModule,
-    NzCardModule
+    NzCardModule, NzBadgeModule, NzListModule 
 
   ],
   exports: [
