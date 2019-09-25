@@ -45,7 +45,7 @@ import { CalculationService } from 'src/app/services/calculation.service';
   </div>
   <div nz-row [nzGutter]="gutterSize">
   <div nz-col [nzSpan]="24">
-    <img src="assets/dashboard.jpg" width="1050" />
+    <img src="assets/dashboard.jpg" width="100%" />
   </div>
   </div>
   

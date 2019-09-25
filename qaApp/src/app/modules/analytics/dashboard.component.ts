@@ -16,7 +16,7 @@ import { CalculationService } from '../../services/calculation.service';
       </ul>
   </div>
 
-  <div nz-col nzSpan="19">
+  <div nz-col nzSpan="17">
       <router-outlet></router-outlet>
   </div> 
 </div>
@@ -24,6 +24,7 @@ import { CalculationService } from '../../services/calculation.service';
   styles: []
 })
 export class DashboardComponent implements OnInit {
+  gutterSize:number = 20;
   userinfo;
   tags$;
   users$;
