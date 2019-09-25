@@ -26,7 +26,7 @@ export class ProfileComponent{
 
   numberOfFollowers: number = 4;
   gutterSize: number = 30;
-
+  topics: [String];
   user: any = {
     firstname: "Guest",
     lastname: "Guest",
@@ -40,8 +40,10 @@ export class ProfileComponent{
 
   constructor(private dataService: DataService, private jwtService: JwtHelperService){}
 
+
   ngDoCheck(){
     const token = localStorage.getItem("access_token");
+    this.topics = JSON.parse(localStorage.getItem("topics"));
     this.user = this.jwtService.decodeToken(token);
   }
 

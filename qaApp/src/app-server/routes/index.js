@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
+require('dotenv').config();
 const router = express.Router();
 const saltRounds = 10;
 
@@ -16,12 +16,17 @@ router.post('/register', function(req, res, next) {
       lastname: req.body.lastname,
       email: req.body.email
     }, SECRET);
-    req.userCollection.insertOne({
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      email: req.body.email,
-      password: hash
-    })
+    req.userCollection.count().then(
+      data => {
+        req.userCollection.insertOne({
+          _id: data+1,
+          firstname: req.body.firstname,
+          lastname: req.body.lastname,
+          email: req.body.email,
+          password: hash
+        })
+      }
+    )
     res.status(200).json(token);
   });
 });
@@ -45,4 +50,42 @@ router.post('/login', function(req, res, next) {
   );
 });
 
+
+
+router.get('/topics', validateToken, (req, res, next) => {
+    req.topicCollection.find().toArray((err,data) => {
+        const topics = data.map(x=>x.name);
+        res.json(topics);
+    })
+})
+
+router.get('/questions', validateToken, (req, res, next) => {
+  req.questionCollection.find().toArray((err,data) => {
+      res.json(data);
+  })
+})
+
+router.get('/questions/:id', validateToken, (req, res, next) => {
+  req.questionCollection.findOne({_id:req.params.id}).then(
+    data => {
+      res.json(data);
+  })
+})
+
+router.post('/questions/add', validateToken, (req, res, next) => {
+
+  req.questionCollection.count().then(
+    data => req.questionCollection.insertOne({_id:data+1, ...req.body})
+  )
+  res.json({message:"Question added Successfully"});
+})
+
+function validateToken(req, res, next){
+  jwt.verify(req.token, SECRET, function(err, decoded) {
+      if(err)
+          res.json({message:"Invalid Token"})
+      else
+          next();
+  });
+}
 module.exports = router;

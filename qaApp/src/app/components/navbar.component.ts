@@ -32,16 +32,39 @@ import { Component, OnInit } from '@angular/core';
 
     <nz-modal
       [(nzVisible)]="isVisible"
-      nzTitle="Add Question"
+      nzTitle="Ask Question"
       (nzOnCancel)="handleCancel()"
       (nzOnOk)="handleOk()"
       [nzOkLoading]="isOkLoading"
     >
-      <input nz-input placeholder="Basic usage" [(ngModel)]="title" />    
+      <label>Question </label>
+      <input nz-input [(ngModel)]="title" />    
       <br />
       <br />
-      <textarea rows="4" nz-input [(ngModel)]="content"></textarea>
-      
+      <label>Topic </label>
+        <nz-select
+          style="width: 200px; display:block;"
+          nzShowSearch
+          nzAllowClear
+          nzPlaceHolder="Select a person"
+          [(ngModel)]="topic"
+          
+          >
+          <nz-option *ngFor="let top of topics" [nzLabel]="top" [nzValue]="top" ></nz-option>
+        </nz-select>      
+      <br />
+      <label>Tags</label>
+        <nz-select
+        style="width: 100%"
+        nzMode="multiple"
+        nzPlaceHolder="Inserted are removed"
+        [(ngModel)]="tags"
+        >
+        <ng-container *ngFor="let option of topics">
+          <nz-option [nzLabel]="option" [nzValue]="option" *ngIf="isNotSelected(option)"></nz-option>
+        </ng-container>
+      </nz-select>
+      <br />
     </nz-modal>    
   </nav>
   `,
@@ -55,9 +78,11 @@ export class NavbarComponent implements OnInit {
   isVisible = false;
   isOkLoading = false;
 
+  topics: [String]
   //question Modal
   title: String = " ";
-  content: String = " ";
+  topic: String = " ";
+  tags: string[] = [];
 
   constructor(private dataService: DataService) {}
 
@@ -65,6 +90,8 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(){
     this.user = this.dataService.isLoggedIn();
+    this.dataService.getTopics();
+    this.topics = JSON.parse(localStorage.getItem("topics"));
   }
 
   ngDoCheck(){
@@ -82,12 +109,17 @@ export class NavbarComponent implements OnInit {
     this.isVisible = true;
   }
 
+  isNotSelected(value: string): boolean {
+    return this.tags.indexOf(value) === -1;
+  }
+
   handleOk(): void {
     this.isVisible = false;
-    console.log(this.title);
-    console.log(this.content);
+    let question = { question: this.title, topic: this.topic, tags: this.tags }
+    this.dataService.addQuestion(question)
     this.title = "";
-    this.content = "";
+    this.topic = "";
+    this.tags = [];
   }
 
   handleCancel(): void {

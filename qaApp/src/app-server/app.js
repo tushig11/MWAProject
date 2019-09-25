@@ -24,12 +24,14 @@ app.use((req,res,next)=>{
             req.db = db;
             req.userCollection = db.collection("users");
             req.questionCollection = db.collection("questions");
+            req.topicCollection = db.collection("topics");
             next();
         })
     } else{
         req.db = db;
         req.userCollection = db.collection("users");
         req.questionCollection = db.collection("questions");
+        req.topicCollection = db.collection("topics");
         next();
     }
 })
