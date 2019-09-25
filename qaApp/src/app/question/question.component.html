@@ -1,5 +1,38 @@
-<div *ngFor="let quest of data">
-    <a [routerLink]="['answers', quest.questionID]"><h4>{{quest.question}}</h4></a>
-    <hr>
-    <br>
-</div>
+<div nz-row [nzGutter]="gutter" nzJustify="center" nzAlign="middle">
+    <div nz-col nzSpan="6">
+        <nz-collapse>
+            <nz-collapse-panel
+            *ngFor="let panel of panels"
+            [nzHeader]="panel.name"
+            [nzActive]="panel.active"
+            >
+                <p>{{ panel.description }}</p>
+            </nz-collapse-panel>
+        </nz-collapse>       
+    </div>
+    <div nz-col nzSpan="12">
+        <nz-list [nzDataSource]="data" [nzRenderItem]="item" [nzItemLayout]="'horizontal'" [nzLoading]="loading"
+        >
+            <ng-template #item let-item>
+                <nz-list-item style="margin-bottom: 20px">
+                <nz-list-item-meta
+                    [nzTitle]="nzTitle"
+                    nzAvatar="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                    [nzDescription]="nzDescription"
+                    >
+                    <ng-template #nzTitle>
+                        <a [routerLink]="['answers', item._id]">{{ item.question }}</a>   
+                    </ng-template>
+                    <ng-template #nzDescription>
+                        Topic: {{ item.topic }}, Tags: {{ item.tags }}
+                    </ng-template>
+                </nz-list-item-meta>
+                </nz-list-item>
+            </ng-template>
+        </nz-list>     
+    </div>
+    <div nz-col nzSpan="4">
+        <img src="./../../assets/images/angular.gif" />
+    </div> 
+  </div>
+

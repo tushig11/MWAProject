@@ -8,13 +8,12 @@ import { AnswersComponent } from './answers/answers.component';
 import { QuestionComponent } from './question/question.component';
 
 const routes: Routes = [
-  { path: "", component: DashboardComponent, },
+  { path: "", component: QuestionComponent, canActivate: [AuthGuard]},
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignupComponent },
   { path: "statistics", component: DashboardComponent, canActivate: [AuthGuard]},
   { path: "user", loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule), canActivate: [AuthGuard]},
-  { path: "", component: QuestionComponent},
-  { path: "answers/:id", component: AnswersComponent}
+  { path: "answers/:id", component: AnswersComponent, canActivate: [AuthGuard]}
 ]
 
 @NgModule({

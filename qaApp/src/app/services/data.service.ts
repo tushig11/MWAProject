@@ -11,77 +11,82 @@ const apiUrl:string = 'http://localhost:4300';
 export class DataService {
 
   QASample = [{
-    questionID:'1',
-    category:'Angular',
-    question: 'what is component?',
-    tags: ['Angular','component'],
-    answer:[{
-      userID:'1',
-      ans:'Component is bla bla bla ..........',
-      comment:[{userID:5 ,comnt:'I like your explanation, thank you'},
-               {userID:4 ,comnt:'but why we have .....?'},
-               {userID:25 ,comnt:'good explanation but I have more clarification about ......'}],
-      vote:[5,100,3,4],
-      shares:[5,25,4,30,24]},
+    _id:19,
+    topic:'Angular',
+    question: 'What is component?',
+    tags: ['Angular'],
+      answer:[{
+        userID:'1',
+        ans:'I guess it is the best practice in the software development since it is extremely easy and time efficient.',
+        vote:[5,100,3,4]},
       {
         userID:'18',
-        ans:'Comoponent is ..... you can find more information in this website .....',
-        comment:[{userID:6 ,comnt:'comment num 1'},
-                 {userID:7 ,comnt:'comment num 2'},
-                 {userID:8 ,comnt:'comment num 3'},
-                 {userID:10 ,comnt:'comment num 4'}],
-        vote:[20,30,4],
-        shares:[4,2,3]},
+        ans:'Its an idea of breaking large, complex software applications into a series of pre-built and easily developed, understood, and changeable software modules.',
+        vote:[20,30,4]},
       {
         userID:'19',
-        ans:'Answer num 3 :Comoponent is ..... you can find more information in this website .....',
-        comment:[{userID:6 ,comnt:'comment num 1'},
-                 {userID:7 ,comnt:'comment num 2'},
-                 {userID:8 ,comnt:'comment num 3'},
-                 {userID:10 ,comnt:'comment num 4'}],
-        vote:[5,4,20,30,4],
-        shares:[4,2,3]},
+        ans:'Example, if you have textboxes, dropdowns, checkboxes…etc in your page. We can write seperate components for these along with those functions. So that same component can be used in every other pages where we want that to appear.',
+        vote:[5,4,20,30,4]}
     ]
   },
   {
-    questionID:'2',
-    category:'NodeJS',
-    question: 'what is NodeJS?',
-    tags: ['NodeJS','backend'],
+    _id:20,
+    topic:'NodeJS',
+    question: 'How can I become an expert in AngularJS and NodeJS?',
+    tags: ['NodeJS','AngularJS'],
     answer:[{
-      userID:'20',
-      ans:'nodeJS is bla bla bla ..........',
-      comment:[{userID:5 ,comnt:'I like your explanation, thank you'},
-               {userID:4 ,comnt:'but why we have .....?'},
-               {userID:25 ,comnt:'good explanation but I have more clarification about ......'}],
-      vote:[5,25,100,3,4],
-      shares:[5,25,4,30,24]},
+        userID:'20',
+        ans:'Learn basics, Expert is one who knows basics very well than others :)',
+        vote:[5,25,100,3,4]},
       {
         userID:'18',
-        ans:'NodeJS is ..... you can find more information in this website .....',
-        comment:[{userID:6 ,comnt:'comment num 1'},
-                 {userID:7 ,comnt:'comment num 2'},
-                 {userID:8 ,comnt:'comment num 3'},
-                 {userID:10 ,comnt:'comment num 4'}],
-        vote:[5,4,20,30,4],
-        shares:[4,2,3]},
-    ]
+        ans:'To become a Node.js developer it is enough to know only Node.js, but with front-end frameworks along with Node.js, makes you a badass JavaScript developer with the above-mentioned skills and tools to build all sorts of web applications.',
+        vote:[5,4,20,30,4]}]
   },
-
 ];
 
+panels = [
+  {
+    active: true,
+    name: 'Mongo DB',
+    disabled: false,
+    description: "MongoDB is a cross-platform and open-source document-oriented database, a kind of NoSQL database. As a NoSQL database, MongoDB shuns the relational database's table-based structure to adapt JSON-like documents that have dynamic schemas which it calls BSON."
+  },
+  {
+    active: false,
+    disabled: false,
+    name: 'Express JS',
+    description: "Express.js, or simply Express, is a web application framework for Node.js, released as free and open-source software under the MIT License. It is designed for building web applications and APIs. It has been called the de facto standard server framework for Node.js."
+  },
+  {
+    active: true,
+    disabled: false,
+    name: 'Angular JS',
+    description: "AngularJS is a structural framework for dynamic web applications. It lets you use HTML as your template language and lets you extend HTML's syntax to express your application components clearly and succinctly."
+  },
+  {
+    active: false,
+    disabled: true,
+    name: 'Node JS',
+    description: "Node.js is an open source, cross-platform runtime environment for developing server-side and networking applications."
+  }
+];
 
 ///////////////////////show the questions/////////////////////////
-sortByVote(a,b){
+sortByVote(a:any,b:any){
   return b['vote'].length-a['vote'].length;
 }
 
 getQuestion(qn:number){
-  return this.QASample[qn-1].question
+  const data = this.QASample.filter(x=>x._id==qn)[0];
+  if(data) return data.question;
+  else return null;
 }
 
 showQAs(qn:number){
-  return this.QASample[qn-1].answer.sort(this.sortByVote)
+  const data = this.QASample.filter(x=>x._id==qn)[0];
+  if(data) return data.answer.sort(this.sortByVote);
+  else return null;
 }
 
 getHQuestions(){
@@ -111,6 +116,7 @@ getHQuestions(){
           this.currentUser = data;
           localStorage.setItem("access_token", data.toString());
           this.router.navigate(['./user']);
+          this.getTopics();
         }
     })
   }
@@ -140,8 +146,8 @@ getHQuestions(){
   getQuestions(){
     this.http.get(apiUrl+'/questions').subscribe(
       data=>{
-        console.log(data);
-        localStorage.setItem("questions", JSON.stringify(data))
+        if(data['message']) console.log(data);
+        else localStorage.setItem("questions", JSON.stringify(data))
       }
     )
   }
@@ -150,9 +156,14 @@ getHQuestions(){
     this.http.get(apiUrl+'/topics').subscribe(
       data => {
         this.topics = data;
-        localStorage.setItem("topics", JSON.stringify(data));
+        if(data['message']) console.log(data);
+        else localStorage.setItem("topics", JSON.stringify(data));
       }
     )
+  }
+
+  getPanels(){
+    return this.panels;
   }
 
   addQuestion(obj){

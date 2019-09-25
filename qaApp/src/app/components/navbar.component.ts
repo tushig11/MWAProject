@@ -22,7 +22,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
           <a [routerLink]="['signup']">Signup</a>
         </li>
         <li nz-menu-item class="fRight">
-          <nz-avatar *ngIf="user; else elseBlock" nzIcon="user" nz-popover [nzContent]="contentTemplate" nzPlacement="bottom" [routerLink]="['user']"></nz-avatar>
+          <nz-avatar *ngIf="user; else elseBlock" nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" nz-popover [nzContent]="contentTemplate" nzPlacement="bottom" [routerLink]="['user']"></nz-avatar>
           <ng-template #elseBlock><a [routerLink]="['login']">Login</a></ng-template>
         </li>
         <ng-template #contentTemplate>
@@ -48,7 +48,6 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
           nzAllowClear
           nzPlaceHolder="Select a person"
           [(ngModel)]="topic"
-          
           >
           <nz-option *ngFor="let top of topics" [nzLabel]="top" [nzValue]="top" ></nz-option>
         </nz-select>      

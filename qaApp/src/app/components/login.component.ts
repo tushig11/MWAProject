@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   template: `
   <div nz-row>
-    <div nz-col nzSpan="6" >
+    <div nz-col nzSpan="8" >
       <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
         <div class="form-group">
           <label for="emailLogin">Email address</label>

@@ -1,18 +1,30 @@
-<h1>{{question}}</h1>
-<hr>
-<br>
-<div *ngFor="let answer of data[0]">
-    <h5>{{answer.ans}}</h5>
-    <ul>
-      <li *ngFor="let com of answer.comment">{{com.comnt}}</li>
-    </ul>
-    <button type="button" (click)="addvote(answer.vote)">UpVote {{answer.vote.length}}</button>
-    <hr>
+<div nz-row [nzGutter]="gutter" nzJustify="center" nzAlign="middle">
+    <div nz-col nzSpan="6">
+        <nz-collapse>
+            <nz-collapse-panel
+            *ngFor="let panel of panels"
+            [nzHeader]="panel.name"
+            [nzActive]="panel.active"
+            >
+                <p>{{ panel.description }}</p>
+            </nz-collapse-panel>
+        </nz-collapse>       
+    </div>
+    <div nz-col nzSpan="12">
+        <h4>{{question}}</h4>
+        <hr>
+        <div *ngFor="let answer of data[0]">
+            <h6>{{answer.ans}}</h6>
+            <button nz-button nzType="primary" (click)="addvote(answer.vote)" [nzLoading]="isLoadingTwo">
+                <i nz-icon nzType="arrow-up"></i> UpVote {{answer.vote.length}}
+            </button>
+            <hr>
+          </div>
+          <h6>Enter your answer</h6>
+          <textarea rows="4" nz-input [(ngModel)]="inputValue"></textarea><br>
+          <button nz-button nzType="primary" nzBlock (click)="go()" class="pb20">Add an answer</button>
+    </div>
+    <div nz-col nzSpan="4">
+        <img src="./../../assets/images/angular.gif" />
+    </div>  
   </div>
-  <hr>
-  <p>Add an answer</p>
-<form #f="ngForm" (ngSubmit)="go(f)">
-  <textarea name='answer' rows="5" cols="30" [ngModel]="ans">Share your answer</textarea>
-  <br>
-  <button type="submit">submit</button>
-</form>
