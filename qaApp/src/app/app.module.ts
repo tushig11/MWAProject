@@ -16,9 +16,9 @@ import { NzListModule } from 'ng-zorro-antd/list';
 
 
 // import the feature module here so you can add it to the imports array below
-import { AnalyticsModule } from './analytics/analytics.module';
 import { SignupComponent } from './components/signup.component';
 import { JwtModule } from "@auth0/angular-jwt";
+import { AnalyticsModule } from './modules/analytics/analytics.module';
 
 //ng-zorr
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';

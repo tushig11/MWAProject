@@ -13,7 +13,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
           <a [routerLink]="['']"><i nz-icon nzType="home"></i>Home</a>
         </li>
         <li nz-menu-item>
-          <a [routerLink]="['statistics']"><i nz-icon nzType="form"></i>Statistics</a>
+          <a [routerLink]="['analytics']"><i nz-icon nzType="form"></i>Analytics</a>
         </li>
         <li nz-menu-item class="fRight">
           <button nz-button nzType="primary" *ngIf="user; else addElse" [nzSize]="size" (click)="showModal()">Add Question</button>

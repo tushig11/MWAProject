@@ -1,0 +1,236 @@
+{
+  "qnas": [
+      {
+      "questionID":"1",
+      "category":"Angular",
+      "question": "what is component?",
+      "tags": ["Angular","component"],
+      "answer":[
+          {
+          "userID":"1",
+          "ans":"Component is bla bla bla ..........",
+          "comment":[{"userID":5 ,"comnt":"I like your explanation, thank you"},
+                  {"userID":4 ,"comnt":"but why we have .....?"},
+                  {"userID":25 ,"comnt":"good explanation but I have more clarification about ......"}],
+          "vote":[5,25,100,3,4],
+          "shares":[5,25,4,30,24]
+          },
+          {
+          "userID":"18",
+          "ans":"Comoponent is ..... you can find more information in this website .....",
+          "comment":[{"userID":6 ,"comnt":"comment num 1"},
+                  {"userID":7 ,"comnt":"comment num 2"},
+                  {"userID":8 ,"comnt":"comment num 3"},
+                  {"userID":10 ,"comnt":"comment num 4"}],
+          "vote":[5,4,20,30,4],
+          "shares":[4,2,3]
+          },
+          {
+          "userID":"19",
+          "ans":"Answer num 3 :Comoponent is ..... you can find more information in this website .....",
+          "comment":[{"userID":6 ,"comnt":"comment num 1"},
+                  {"userID":7 ,"comnt":"comment num 2"},
+                  {"userID":8 ,"comnt":"comment num 3"},
+                  {"userID":10 ,"comnt":"comment num 4"}],
+          "vote":[5,4,20,30,4],
+          "shares":[4,2,3]
+          }]
+      },
+      {
+      "questionID":"2",
+      "category":"NodeJS",
+      "question": "what is NodeJS?",
+      "tags": ["NodeJS","backend"],
+      "answer":[
+          {
+          "userID":"20",
+          "ans":"nodeJS is bla bla bla ..........",
+          "comment":[{"userID":5 ,"comnt":"I like your explanation, thank you"},
+              {"userID":4 ,"comnt":"but why we have .....?"},
+              {"userID":25 ,"comnt":"good explanation but I have more clarification about ......"}],
+          "vote":[5,25,100,3,4],
+          "shares":[5,25,4,30,24]
+          },
+          {
+          "userID":"18",
+          "ans":"NodeJS is ..... you can find more information in this website .....",
+          "comment":[{"userID":6 ,"comnt":"comment num 1"},
+                  {"userID":7 ,"comnt":"comment num 2"},
+                  {"userID":8 ,"comnt":"comment num 3"},
+                  {"userID":10 ,"comnt":"comment num 4"}],
+          "vote":[5,4,20,30,4],
+          "shares":[4,2,3]
+          }]
+      }
+  ],
+  "toptags": [
+      {
+      "id": 1,
+      "name": "angular",
+      "description": "Questions about Angular (not to be confused with AngularJS), the web framework from Google. Use this tag for Angular questions",
+      "count": 100,
+      "created": "2018-01-13T17:54:52Z"
+      },
+      {
+      "id": 2,
+      "name": "mongodb",
+      "description": "a scalable, high-performance, open source, document-oriented NoSQL database. It supports a large number of languages.",
+      "count": 81,
+      "created": "2019-03-11T07:32:05Z"
+      },
+      {
+      "id": 3,
+      "name": "express",
+      "description": "a flexible Node.js web application framework, providing a robust set of features for building web applications.",
+      "count": 60,
+      "created": "2018-03-11T07:32:05Z"
+      },
+      {
+      "id": 4,
+      "name": "nodejs",
+      "description": "Node.js is an event-based, non-blocking, asynchronous I/O runtime that uses Google's V8 JavaScript engine and libuv library.",
+      "count": 25,
+      "created": "2003-02-27T11:39:46Z"
+      }
+  ],
+
+  "topusers":[
+      {
+      "id": 1,
+      "name": "Gantushig",
+      "reputation": 13689,
+      "questionCount": 2,
+      "answerCount": 214,
+      "mostVotedQuestions": [
+          {    
+          "id": 1,
+          "title": "Question 1?", 
+          "vote": 26
+          }, 
+          {    
+          "id": 2,    
+          "title": "Question 2?", 
+          "vote": 15
+          }],
+      "mostVotedAnswers": [
+          {    
+          "id": 1,
+          "title": "Guards are useful Service which allow you to control access to and from a Route/Component.", 
+          "vote": 78
+          }, 
+          {    
+          "id": 2,    
+          "title": "Answer 2?", 
+          "vote": 57
+          }],
+      "mostUsedTags": [
+          {    
+          "id": 1,
+          "title": "angular", 
+          "vote": 5
+          }, 
+          {    
+          "id": 2,    
+          "title": "express", 
+          "vote": 2
+          }]
+          
+      },
+      {
+      "id": 2,
+      "name": "Houssam",
+      "reputation": 9025,
+      "questionCount": 1,
+      "answerCount": 126,
+      "mostVotedQuestions": [
+          {    
+          "id": 1,
+          "title": "Question 1?", 
+          "vote": 26
+          }],
+      "mostVotedAnswers": [
+          {    
+          "id": 1,
+          "title": "The purpose of a NgModule is to declare each object you have in Angular Module, like components and services which belong together.", 
+          "vote": 140
+          }, 
+          {    
+          "id": 2,    
+          "title": "The RouterModule gives you a component <router-outlet> and a directive routerlink, but also services ActivatedRoute and Router.", 
+          "vote": 89
+          }],
+      "mostUsedTags": [
+          {    
+          "id": 1,
+          "title": "mongodb", 
+          "vote": 14
+          }, 
+          {    
+          "id": 2,    
+          "title": "anglular", 
+          "vote": 8
+          }]
+      },
+      {
+      "id": 3,
+      "name": "Naya",
+      "reputation": 1234,
+      "questionCount": 3,
+      "answerCount": 89,
+      "mostVotedQuestions": [
+          {    
+          "id": 1,
+          "title": "Question 1?", 
+          "vote": 26
+          }, 
+          {    
+          "id": 2,    
+          "title": "Question 2?", 
+          "vote": 15
+          },
+          {    
+          "id": 2,    
+          "title": "Question 3?", 
+          "vote": 2
+          }],
+      "mostVotedAnswers": [
+          {    
+          "id": 1,
+          "title": "Guards are useful Service which allow you to control access to and from a Route/Component.", 
+          "vote": 14
+          }, 
+          {    
+          "id": 2,    
+          "title": "Lazy loading speeds up the application load time by splitting it into multiple bundles, and loading them on demand, ...", 
+          "vote": 9
+          }],
+      "mostUsedTags": [
+          {    
+          "id": 1,
+          "title": "angular", 
+          "vote": 5
+          }, 
+          {    
+          "id": 2,    
+          "title": "nodejs", 
+          "vote": 2
+          }]
+      }
+  
+  ],
+
+  "topics":[
+      {
+      "id": 1,
+      "name": "Location001"
+      },
+      {
+      "id": 2,
+      "name": "Location002"
+      },
+      {
+      "id": 3,
+      "name": "Location003"
+      }
+  ]
+}
